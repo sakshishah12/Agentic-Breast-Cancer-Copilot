@@ -1,4 +1,5 @@
 import random
+import os
 import pickle
 from models.feature_mapper import map_patient_to_features
 
