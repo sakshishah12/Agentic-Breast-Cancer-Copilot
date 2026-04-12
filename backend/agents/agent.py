@@ -7,10 +7,11 @@ from .prompts import SYSTEM_PROMPT
 import os 
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("gemini-1.5-flash")  
+model = genai.GenerativeModel(GEMINI_MODEL)  
 
 
 def run_agent(patient):

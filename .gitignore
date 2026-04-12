@@ -1,6 +1,5 @@
 node_modules
 __pycache__/
 *.pyc
-*.pkl
 .env
 !backend/models/risk_model.pkl
