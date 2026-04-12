@@ -1,6 +1,6 @@
 import random
 import pickle
-from models.feature_mapper import map_patient_to_features
+from backend.models.feature_mapper import map_patient_to_features
 
 # Load model once
 with open("models/risk_model.pkl", "rb") as f:
