@@ -19,7 +19,6 @@ services:
   - type: web
     runtime: static
     name: cancer-copilot-web
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
@@ -33,4 +32,3 @@ services:
           type: web
           name: cancer-copilot-api
           envVarKey: RENDER_EXTERNAL_URL
-
