@@ -25,4 +25,5 @@ os.makedirs("models", exist_ok=True)
 with open("models/risk_model.pkl", "wb") as f:
     pickle.dump(model, f)
 
-print("✅ Model trained and saved as models/risk_model.pkl")
+print("Model trained and saved as models/risk_model.pkl")
+

@@ -2,9 +2,21 @@ import random
 import pickle
 from models.feature_mapper import map_patient_to_features
 
-# Load model once
-with open("models/risk_model.pkl", "rb") as f:
-    model = pickle.load(f)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "risk_model.pkl")
+
+def load_model():
+    if not os.path.exists(MODEL_PATH):
+        print("⚠️ Model not found. Training new model...")
+
+        from models.train_model import train_model
+        train_model()
+
+    with open(MODEL_PATH, "rb") as f:
+        return pickle.load(f)
+
+
+model = load_model()
 
 
 def compute_risk(patient):
