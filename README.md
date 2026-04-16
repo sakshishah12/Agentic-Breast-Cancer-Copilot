@@ -6,8 +6,8 @@ An **agentic AI system** that assists in cancer screening decisions by combining
 
 ## 🚀 Live Demo
 
-* 🌐 Frontend: [Add your Vercel link]
-* ⚙️ API: [Add your backend link]
+* https://cancer-copilot-web-5qpx.onrender.com/
+
 
 ---
 
