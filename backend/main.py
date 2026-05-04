@@ -1,9 +1,9 @@
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from agents.agent import run_agent
+from orchestrator.agent_controller import run_screening_pipeline
+from orchestrator.schemas import PatientInput, PredictionResponse
 
 app = FastAPI()
 
@@ -34,18 +34,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class PatientData(BaseModel):
-    age: int
-    gender: str
-    smoker: bool
-    family_history: bool
-    symptoms: list[str] = []
-
 @app.get("/")
 def home():
-    return {"message": "Agentic Cancer Screening Copilot API"}
+    return {"message": "Agentic Cancer Screening Copilot API", "version": "multi-agent"}
 
-@app.post("/analyze")
-def analyze(patient: PatientData):
-    result = run_agent(patient.dict())
-    return result
+
+@app.post("/predict", response_model=PredictionResponse)
+def predict(patient: PatientInput, debug: bool = False, prompt_version: str | None = None):
+    try:
+        return run_screening_pipeline(patient, debug=debug, prompt_version=prompt_version)
+    except Exception as exc:  # pragma: no cover - FastAPI boundary handling
+        raise HTTPException(status_code=500, detail=f"Prediction pipeline failed: {exc}") from exc
+
+
+@app.post("/analyze", response_model=PredictionResponse)
+def analyze(patient: PatientInput, debug: bool = False, prompt_version: str | None = None):
+    return predict(patient, debug=debug, prompt_version=prompt_version)

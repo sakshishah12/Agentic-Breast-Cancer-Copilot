@@ -1,0 +1,7 @@
+{
+  "age": 58,
+  "gender": "female",
+  "smoker": true,
+  "family_history": true,
+  "symptoms": ["weight loss", "fatigue"]
+}

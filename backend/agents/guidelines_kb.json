@@ -1,0 +1,54 @@
+[
+  {
+    "id": "guideline_colon_over_45",
+    "age_min": 45,
+    "gender": "any",
+    "risk_min": 0.0,
+    "recommendation": "Initiate colorectal cancer screening discussion and schedule colonoscopy screening.",
+    "recommendation_type": "screening",
+    "citation": "ACS colorectal screening guidance",
+    "keywords": ["age", "screening", "colon", "colorectal"]
+  },
+  {
+    "id": "guideline_lung_smoker_high_risk",
+    "age_min": 50,
+    "gender": "any",
+    "risk_min": 0.45,
+    "smoker": true,
+    "recommendation": "Recommend low-dose CT screening evaluation for lung cancer risk.",
+    "recommendation_type": "screening",
+    "citation": "USPSTF lung cancer screening guidance",
+    "keywords": ["smoker", "lung", "ct", "screening"]
+  },
+  {
+    "id": "guideline_breast_female_over_40",
+    "age_min": 40,
+    "gender": "female",
+    "risk_min": 0.25,
+    "recommendation": "Recommend breast screening follow-up with mammography planning.",
+    "recommendation_type": "screening",
+    "citation": "USPSTF breast cancer screening guidance",
+    "keywords": ["female", "mammogram", "breast", "screening"]
+  },
+  {
+    "id": "guideline_high_risk_review",
+    "age_min": 18,
+    "gender": "any",
+    "risk_min": 0.65,
+    "recommendation": "Escalate to urgent oncology or primary care review for high-risk findings.",
+    "recommendation_type": "review",
+    "citation": "Internal clinical escalation rule",
+    "keywords": ["high risk", "urgent", "review"]
+  },
+  {
+    "id": "guideline_symptom_workup",
+    "age_min": 18,
+    "gender": "any",
+    "risk_min": 0.2,
+    "symptom_keywords": ["bleeding", "lump", "weight loss"],
+    "recommendation": "Recommend expedited diagnostic workup because of concerning symptoms.",
+    "recommendation_type": "diagnostic",
+    "citation": "Symptom-based cancer workup best practice",
+    "keywords": ["symptoms", "workup", "diagnostic"]
+  }
+]
